@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 4 elements to &apos;JavaProject/src/IO&apos;&#x0D;&#x0A;- Original project: &apos;JavaProject&apos;&#x0D;&#x0A;- Destination element: &apos;JavaProject/src/IO&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     FilenameFilterTest.java&#x0D;&#x0A;     FileReaderTest.java&#x0D;&#x0A;     FileTest.java&#x0D;&#x0A;     FileInputStreamTest.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="/src&lt;IO" element1="/src&lt;{FilenameFilterTest.java" element2="/src&lt;{FileReaderTest.java" element3="/src&lt;{FileTest.java" element4="/src&lt;{FileInputStreamTest.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1485020464202" units="4" version="1.0"/>
+</session>
