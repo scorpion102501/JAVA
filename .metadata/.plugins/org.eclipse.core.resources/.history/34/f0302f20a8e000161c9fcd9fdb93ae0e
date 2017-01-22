@@ -1,0 +1,9 @@
+package Net;
+
+import java.net.Inet4Address;
+
+public class Inet4AddressTest {
+	public static void main(String[] args){
+		Inet4Address
+	}
+}

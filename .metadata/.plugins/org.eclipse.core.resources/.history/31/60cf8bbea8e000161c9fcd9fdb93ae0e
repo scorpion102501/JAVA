@@ -1,0 +1,14 @@
+package Net;
+
+import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class InetAddressTest {
+	public static void main(String[] args) throws IOException{
+		InetAddress ip4 = Inet4Address.getByName("www.google.com");
+		System.out.println("google¥i§_¨ì¹F:" + ip4.isReachable(2000));
+		System.out.println(ip4.getHostName());
+	}
+}
