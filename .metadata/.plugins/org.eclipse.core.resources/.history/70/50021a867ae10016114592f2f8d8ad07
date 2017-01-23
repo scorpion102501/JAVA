@@ -1,0 +1,25 @@
+package basic;
+
+public class Variable {
+	public static void main(String[] args){
+		char c1 = 'J';
+		char c2 = '¤¤';
+		char c3 = 74;
+		char[] cArray;
+		char n = '\0';
+
+		byte b1 = 1;
+		byte b2 = 'J';
+		byte b3 = '1';
+		byte b4 = 127;
+		byte b5 = 052;
+		byte b6 = 0x1F;
+		byte b7 = 0b1110;
+		byte[] bArray;
+		
+		short s1 = 1;
+		short s2 = 'A';
+		short[] sArray;
+		short s3 = 1_000;
+	}
+}
