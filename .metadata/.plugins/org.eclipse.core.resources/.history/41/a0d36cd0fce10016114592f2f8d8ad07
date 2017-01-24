@@ -1,0 +1,31 @@
+package JDBC;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+import JDBC.LoginMySQL;
+
+public class ShowDatabases {
+	LoginMySQL login = new LoginMySQL();
+	
+	public void showDatabases()throws Exception{
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("show databases;")){
+				while(rs.next()){
+					System.out.println(rs.getString(1));
+				}
+		}
+	}
+	public static void main(String args[]) throws Exception{
+		ConnMySQL ed = new ConnMySQL();
+		ed.login.initParam("mysql.ini");
+		ed.showDatabases();
+		System.out.println("-----¬d¸ß¦¨¥\-----");
+	}
+}

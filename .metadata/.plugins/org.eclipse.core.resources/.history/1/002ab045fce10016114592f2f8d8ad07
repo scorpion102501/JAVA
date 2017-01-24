@@ -1,0 +1,5 @@
+package JDBC;
+
+public class LoginMySQL {
+	public String driver,url,user,pass;
+}

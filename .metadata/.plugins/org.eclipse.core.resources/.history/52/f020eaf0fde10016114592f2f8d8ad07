@@ -1,0 +1,21 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ExecuteDDL {
+	ConnMySQL login = new ConnMySQL();
+	public void ExecuteDDL()throws Exception{
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("show databases;")){
+				while(rs.next()){
+					System.out.println(rs.getString(1));
+				}
+		}
+	}
+}

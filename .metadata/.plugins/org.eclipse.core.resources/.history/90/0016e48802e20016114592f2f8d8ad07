@@ -1,0 +1,38 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.mysql.jdbc.ResultSetMetaData;
+
+public class ExecuteSQL {
+	ConnMySQL login = new ConnMySQL();
+	public void executeSql(String sql)throws Exception{
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			Statement stmt = conn.createStatement()){
+				boolean hasResultSet = stmt.execute(sql);
+				if(hasResultSet){
+					try(ResultSet rs = stmt.getResultSet()){
+						java.sql.ResultSetMetaData rsmd = rs.getMetaData();
+						int columnCount = rsmd.getColumnCount();
+						while(rs.next()){
+							for(int i = 0; i<columnCount; i++){
+								System.out.print(rs.getString(i+1)+"\t");
+							}
+						System.out.println();
+						}
+					}
+				}else{
+					System.out.println("影響的紀錄有"+stmt.getUpdateCount()+"條");
+				}
+		}
+	}
+	public static void main(String[] args){
+		ExecuteSQL es = new ExecuteSQL();
+		es.login.initParam("mysql.ini");
+	}
+}

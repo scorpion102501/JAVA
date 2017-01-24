@@ -1,0 +1,33 @@
+package JDBC;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class ExecuteDDL {
+	String driver,url,user,pass;
+	public void initParam(String paramFile) throws Exception{
+		Properties props =  new Properties();
+		props.load(new FileInputStream(paramFile));
+		driver = props.getProperty("driver");
+		url = props.getProperty("url");
+		user = props.getProperty("user");
+		pass = props.getProperty("pass");
+	}
+	
+	public void createTable(String sql)throws Exception{
+		Class.forName(driver);
+		try(
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			Statement stmt = conn.createStatement()){
+				stmt.executeUpdate(sql);
+		}
+	}
+	public static void main(String args[]) throws Exception{
+		ExecuteDDL ed = new ExecuteDDL();
+		ed.initParam("mysql.ini");
+		ed.createTable("show databases;");
+			System.out.println("-----建表成功-----");
+	}
+}

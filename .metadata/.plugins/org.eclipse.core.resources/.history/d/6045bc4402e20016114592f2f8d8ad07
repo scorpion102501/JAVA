@@ -1,0 +1,17 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class ExecuteSQL {
+	ConnMySQL login = new ConnMySQL();
+	public int executeSql(String sql)throws Exception{
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			Statement stmt = conn.createStatement()){
+				return stmt.executeUpdate(sql);
+		}
+	}
+}

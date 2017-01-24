@@ -1,0 +1,26 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class LoginFrame {
+	private JFrame jf = new JFrame("µn¤J");
+	private JTextField userField = new JTextField(20);
+	private JTextField passField = new JTextField(20);
+	private JButton loginButton = new JButton("µn¤J");
+	ConnMySQL login = new ConnMySQL();
+	public int init(String sql)throws Exception{
+		login.initParam("mysql.ini");
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			Statement stmt = conn.createStatement()){
+				return stmt.executeUpdate(sql);
+		}
+	}
+}

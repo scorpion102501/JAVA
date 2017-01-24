@@ -15,7 +15,7 @@ public class DrawLine extends Canvas {
 	} 
  
 	public static void main(String[] args) {
-		Frame frame = new Frame("MyCanvasDemo_1");
+		Frame frame = new Frame("DrawLine");
 		frame.add(new DrawLine());
  
 		//設定視窗顯示在螢幕在的位置
