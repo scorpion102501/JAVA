@@ -1,0 +1,17 @@
+package Algorithm;
+
+import java.util.Scanner;
+
+public class A005_CalcCylinderSurfaceArea {
+	public static void main(String[] args){
+		//輸入半徑r和高h，輸出圓柱體的表面積
+		//計算圓柱體面積:底面積*2+側面積
+		final double pi = 3.1415926;
+		Scanner sc = new Scanner(System.in);
+		double r=sc.nextDouble(), h=sc.nextDouble(), s1, s2, s;
+		s1 = pi*r*r;
+		s2 = 2*pi*r*h;
+		s = s1*2.0+s2;
+		System.out.printf("%.3f",s);
+	}
+}

@@ -1,0 +1,19 @@
+package Algorithm;
+
+import java.util.Scanner;
+
+public class A014_Triangle {
+	public static void main(String[] args){
+		//輸入三個邊(正整數)，判斷是否能成為直角三角形
+		//如果可以輸出YES，不能則輸出NO
+		//如果根本無法構成三角形則輸出not a triangle
+		Scanner sc = new Scanner(System.in);
+		int a=sc.nextInt(), b=sc.nextInt(), c=sc.nextInt();
+		if(a*a+b*b==c*c||a*a+c*c==b*b||b*b+c*c==a*a)
+			System.out.println("YES");
+		else if(a+b>c||a+c>b||b+c>a)
+			System.out.println("NO");
+		else
+			System.out.println("not a triangle");
+	}
+}

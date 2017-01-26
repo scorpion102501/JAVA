@@ -1,0 +1,12 @@
+package Algorithm;
+
+import java.text.DecimalFormat;
+
+public class A2Calc8except5 {
+	public static void main(String[] args){
+		//計算並輸出8/5的值，保留小數點後1位
+		DecimalFormat df = new DecimalFormat("#.##");
+		System.out.println(df.format(8/5));
+		System.out.printf("%.2f",8/5);
+	}
+}

@@ -1,0 +1,12 @@
+package Algorithm;
+
+import java.util.Scanner;
+
+public class A9_CalcAverage {
+	public static void main (String[] args){
+		//計算出三整數的平均值，保留小數點三位數
+		Scanner sc = new Scanner(System.in);
+		double a=sc.nextDouble(),b=sc.nextDouble(),c=sc.nextDouble();
+		System.out.printf("%.3f",(a+b+c)/3);
+	}
+}

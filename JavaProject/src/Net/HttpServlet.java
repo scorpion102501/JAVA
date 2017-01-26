@@ -1,0 +1,16 @@
+package Net;
+
+import java.util.logging.Filter;
+import java.util.logging.LogRecord;
+
+public class HttpServlet implements Filter {
+	public static void main(String[] args){
+		
+	}
+
+	@Override
+	public boolean isLoggable(LogRecord record) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

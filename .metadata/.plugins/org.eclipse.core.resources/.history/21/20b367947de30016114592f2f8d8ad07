@@ -1,0 +1,28 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Types;
+
+public class CallableStatementTest {
+	ConnMySQL login = new ConnMySQL();
+	public void callProcedure()throws Exception{
+		Class.forName(login.driver);
+		try(
+			Connection conn = DriverManager.getConnection(login.url, login.user, login.pass);
+			java.sql.CallableStatement cstmt = conn.prepareCall(
+							"{call and_pro(?,?,?)}")){
+			cstmt.setInt(1, 4);
+			cstmt.setInt(2, 5);
+			//註冊callableStatement的第三個參數是int類型
+			cstmt.registerOutParameter(3, Types.INTEGER);
+			//執行註冊過程
+			cstmt.execute();
+			//獲取並輸出儲存過程傳出參數的值
+			System.out.println("執行過程結果是:" + cstmt.getInt(3));
+		}
+	}
+	public static void main(String[] args) throws Exception{
+		
+	}
+}
