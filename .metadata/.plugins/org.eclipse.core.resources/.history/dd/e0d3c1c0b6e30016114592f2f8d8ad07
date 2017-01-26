@@ -1,0 +1,95 @@
+package JDBC;
+
+import java.awt.Label;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextField;
+import javax.swing.filechooser.FileFilter;
+
+public class BlobTest {
+	JFrame jf = new JFrame("圖片管理程式");
+	private static Connection conn;
+	private static PreparedStatement insert;
+	private static PreparedStatement query;
+	private static PreparedStatement queryAll;
+	//定義一個DefaultListModel物件
+	private DefaultListModel<ImageHolder> imageModel
+			= new DefaultListModel<>();
+	//初始化JFrame元件
+	private JList<ImageHolder> imageList = new JList<>(imageModel);
+	private JTextField filePath = new JTextField(26);
+	private JButton browserBn = new JButton("...");
+	private JButton uploadBn = new JButton("上傳");
+	private JLabel imageLable = new JLabel();
+	//使用現在路徑建立檔案選擇器
+	JFileChooser chooser = new JFileChooser(".");
+	//建立檔案過濾器
+	
+	public static void main(String[] args){
+		
+	}
+	
+	class ExtensionFileFilter extends FileFilter{
+		private String description = "";
+		private ArrayList<String> extensions = new ArrayList<>();
+		//自訂方法，添加檔案附檔名
+		public void addExtensions(String extension){
+			if(!extension.startsWith(".")){
+				extension = "." + extension;
+				extensions.add(extension.toLowerCase());
+			}
+		}
+		//過濾檔案過濾器的描述文字
+		public void setDescription(String aDescription) {
+			description = aDescription;
+		}
+		@Override
+		public String getDescription(){
+			return description;
+		}
+		@Override
+		public boolean accept(File f) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+	}
+	
+	class ImageHolder{
+		//封裝圖片的ID
+		private int id;
+		//封裝圖片的名字
+		private String name;
+		public ImageHolder(){};
+		public ImageHolder(int id, String name){
+			this.id = id;
+			this.name = name;
+		}
+		//id的setter和getter方法
+		public void setId(int id){
+			this.id = id;
+		}
+		public int getId(int id){
+			return this.id;
+		}
+		//name的setter和getter方法
+		public void setName(String name){
+			this.name = name;
+		}
+		public String getName(String name){
+			return this.name;
+		}
+		//覆寫toString()方法，返回圖片名稱
+		public String toString(){
+			return name;
+		}
+	}
+}

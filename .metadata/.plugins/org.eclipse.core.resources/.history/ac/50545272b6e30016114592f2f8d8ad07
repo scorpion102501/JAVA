@@ -1,0 +1,39 @@
+package JDBC;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+
+public class BlobTest {
+	JFrame jf = new JFrame("圖片管理程式");
+	private static Connection conn;
+	private static PreparedStatement insert;
+	private static PreparedStatement query;
+	private static PreparedStatement queryAll;
+	//定義一個DefaultListModel物件
+	private DefaultListModel<ImageHolder>;
+	public static void main(String[] args){
+		
+	}
+	
+	class ImageHolder{
+		//封裝圖片的ID
+		private int id;
+		//封裝圖片的名字
+		private String name;
+		public ImageHolder(){};
+		public ImageHolder(int id, String name){
+			this.id = id;
+			this.name = name;
+		}
+		//id的setter和getter方法
+		public void setId(int id){
+			this.id = id;
+		}
+		public int getId(int id){
+			return this.id;
+		}
+	}
+}

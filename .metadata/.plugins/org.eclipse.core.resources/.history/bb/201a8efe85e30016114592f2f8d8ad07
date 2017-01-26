@@ -1,0 +1,32 @@
+package JDBC;
+
+public class ImageHolder implements Parcelable {
+    public String name="";
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+    }
+
+    public ImageHolder() {
+    }
+
+    protected ImageHolder(Parcel in) {
+        this.name = in.readString();
+    }
+
+    public static final Parcelable.Creator<ImageHolder> CREATOR = new Parcelable.Creator<ImageHolder>() {
+        public ImageHolder createFromParcel(Parcel source) {
+            return new ImageHolder(source);
+        }
+
+        public ImageHolder[] newArray(int size) {
+            return new ImageHolder[size];
+        }
+    };
+}
